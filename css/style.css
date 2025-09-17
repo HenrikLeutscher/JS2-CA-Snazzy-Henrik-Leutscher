@@ -1,0 +1,8 @@
+.header-primary {
+    background-color: var(--bs-primary);
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+}
