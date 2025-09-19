@@ -14,7 +14,7 @@
     <link href="css/style.css" rel="stylesheet"> <!-- CSS Styles for Variables -->
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header class="header-primary d-flex align-items-center">
+    <header class="header-primary d-flex justify-content-between align-items-center p-3">
         <img src="./assets/img/SnazzyLogo2.png" alt="Snazzy Logo" class="logo">
         <p id="greet">Hello, User</p>
     </header>
@@ -31,6 +31,7 @@
                 <input name="password" id="password" class="form-control" type="password" placeholder="Password" autocomplete="current-password">
                 
                 <button class="btn btn-primary" type="submit">Log In</button>
+                <p id="error-message" class="text-danger text-center"></p>
             </form>
             <p class="text-center">Dont have an account? <a href="./register/register.html">Register Here</a></p>
         </div>
@@ -41,7 +42,7 @@
             <p>&copy; 2025 Snazzy. All rights reserved.</p>
         </div>
     </footer>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
