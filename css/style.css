@@ -16,3 +16,8 @@ html, body {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.Preview-Image {
+  width: 500px;
+  height: auto;
+}
