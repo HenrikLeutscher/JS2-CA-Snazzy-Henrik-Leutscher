@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const data = await registerUser(userData);
       saveToken(data.accessToken);
-      errorMessage.style.color = "green";
+      errorMessage.classList.remove("text-danger");
+      errorMessage.classList.add("text-success");
       errorMessage.textContent = "Registration successful! Redirecting...";
       setTimeout(() => (window.location.href = "feed.html"), 3000);
     } catch (err) {
