@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,20 @@
     <link href="css/variables.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body class="d-flex flex-column min-vh-100">
     <header class="header-primary d-flex justify-content-between align-items-center p-3">
-        <img src="./assets/img/SnazzyLogo2.png" alt="Snazzy Logo" class="logo">
+        <a href="feed.html">
+            <img src="./assets/img/SnazzyLogo2.png" alt="Snazzy Logo" class="logo">
+        </a>
         <a href="createPost.html" class="btn btn-outline-primary btn-sm">Create a new post</a>
         <button id="logoutBtn" class="btn btn-outline-danger btn-sm" onclick="logout()">Logout</button>
     </header>
 
     <main class="flex-fill d-flex align-items-center">
         <div class="container flex-fill" id="feedPost">
+            <!-- Post will be displayed here -->
+            <p class="text-center">Loading post...</p>
         </div>
     </main>
 
@@ -30,4 +36,5 @@
     <script type="module" src="./js/logout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
