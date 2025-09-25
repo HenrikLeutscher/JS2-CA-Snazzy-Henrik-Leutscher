@@ -1,5 +1,5 @@
 import { loginUser } from "./api/auth.js";
-import { saveToken } from "./utils/storage.js";
+import { saveToken, saveUser } from "./utils/storage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#loginForm");
@@ -23,11 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const token = loginResponse.data.accessToken;
       saveToken(token);
 
+      saveUser(loginResponse.data);
+
       console.log("Saved token:", token);
 
       errorMessage.classList.remove("text-danger");
       errorMessage.classList.add("text-success");
       errorMessage.textContent = "Login successful! Redirecting...";
+      
       setTimeout(() => {
         window.location.href = "feed.html";
       }, 2000);
