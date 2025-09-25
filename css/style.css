@@ -5,7 +5,7 @@ html, body {
 
 .header-primary,
 .footer-primary {
-    background-color: var(--bs-primary);
+    background-color: lightseagreen;
 }
 
 .logo {
@@ -20,4 +20,25 @@ html, body {
 .Preview-Image {
   width: 500px;
   height: auto;
+}
+
+.Feed-Card {
+  border: 1px solid lightseagreen;
+  border-radius: 4px;
+}
+
+.Feed-Card:hover {
+  border: 2px solid lightseagreen;
+}
+
+.Profile-Banner {
+  height: 500px;
+  object-fit: cover;
+}
+
+.Profile-Avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
 }
