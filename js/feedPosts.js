@@ -42,20 +42,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const post = await getSinglePost(postId);
-    console.log(post);
+    document.title = `${post.title || "Post"} - Snazzy`;
     feedPost.innerHTML = `
-      <div class="card shadow-sm w-100 mx-auto m-2 p-3">
+      <div class="card shadow-sm w-100 mx-auto m-2 p-3 Feed-Card">
         <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted">@${post.author?.name || "Unknown User"}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <a href="viewProfile.html?username=${post.author?.name}">@${post.author?.name}</a>
+          </h6>
           <h3 class="card-title">${post.title}</h3>
           ${
             post.media?.url
-              ? `<img src="${post.media.url}" alt="${post.media.alt || "Post image"}" class="img-thumbnail rounded mt-3" />`
+              ? `<img src="${post.media.url}" alt="${
+                  post.media.alt || "Post image"
+                }" class="img-thumbnail rounded mt-3" />`
               : ""
           }
           <p class="card-text">${post.body}</p>
           <p class="card-subtitle text-muted small mt-3">
-            Publish Date: ${new Date(post.created).toLocaleDateString()}
+            Date Posted: ${new Date(
+              post.created
+            ).toLocaleDateString()} <br> Time Posted: ${new Date(
+      post.created
+    ).toLocaleTimeString()}
           </p>
         </div>
       </div>
