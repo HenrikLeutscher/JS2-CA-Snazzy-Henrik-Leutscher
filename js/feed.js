@@ -1,18 +1,9 @@
 import { getPosts } from "./api/posts.js";
+import { postClick } from "./api/posts.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const feedContainer = document.getElementById("feed");
   const searchInput = document.getElementById("searchInput");
-
-  function postClick() {
-    const postElements = document.querySelectorAll(".post");
-    postElements.forEach((postEl) => {
-      postEl.addEventListener("click", () => {
-        const postId = postEl.getAttribute("data-id");
-        window.location.href = `feedposts.html?id=${postId}`;
-      });
-    });
-  }
 
   try {
     const posts = await getPosts();
@@ -35,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     post.media?.url
                       ? `<img src="${post.media.url}" alt="${
                           post.media.alt || "Post image"
-                        }" class="img-thumbnail rounded mt-3 w-25" />`
+                        }" class="img-thumbnail rounded mt-3 Post-Image" />`
                       : ""
                   }
                 </picture>

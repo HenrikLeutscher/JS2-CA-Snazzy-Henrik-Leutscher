@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             post.media?.url
               ? `<img src="${post.media.url}" alt="${
                   post.media.alt || "Post image"
-                }" class="img-thumbnail rounded mt-3" />`
+                }" class="img-thumbnail rounded mt-3 Specific-Post-Image" />`
               : ""
           }
           <p class="card-text">${post.body}</p>
