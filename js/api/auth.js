@@ -1,4 +1,4 @@
-const API_URL = "https://v2.api.noroff.dev/auth";
+import { API_URL } from "../config.js";
 
 /**
  * @param {object} userData - { username, email, password }

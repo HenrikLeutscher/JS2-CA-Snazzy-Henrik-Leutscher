@@ -1,14 +1,11 @@
-import { getToken } from "../utils/storage.js";
-import { API_KEY } from "../config.js";
-
-const POSTS_API_URL = "https://v2.api.noroff.dev/social/posts";
-const PROFILES_API_URL = "https://v2.api.noroff.dev/social/profiles";
+import { getToken, getApiKey } from "../utils/storage.js";
+import { API_KEY, POST_API_URL } from "../config.js";
 
 export async function getPosts() {
     const accessToken = getToken();
     if (!accessToken) throw new Error("Please log in to view posts");
 
-    const response = await fetch(`${POSTS_API_URL}?_author=true`, {
+    const response = await fetch(`${POST_API_URL}?_author=true`, {
         headers: {
             "Authorization": `Bearer ${accessToken}`,
             "X-Noroff-API-Key": API_KEY,
@@ -42,7 +39,7 @@ export async function createPost(postData) {
         return;
     }
 
-    const response = await fetch(POSTS_API_URL, {
+    const response = await fetch(POST_API_URL, {
         method: "POST",
         headers: {
             Authorization: `Bearer ${token}`,
