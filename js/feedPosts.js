@@ -1,6 +1,6 @@
-import { getToken, getApiKey } from "./utils/storage.js";
-
-const POST_API_URL = "https://v2.api.noroff.dev/social/posts";
+import { getToken, getApiKey, getUser } from "./utils/storage.js";
+import { deletePost } from "./deletePost.js";
+import { POST_API_URL } from "./config.js";
 
 /**
  * Fetch a single post by ID
@@ -43,6 +43,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const post = await getSinglePost(postId);
     document.title = `${post.title || "Post"} - Snazzy`;
+
+    const loggedInUser = getUser();
+    const isAuthor = loggedInUser && loggedInUser.name === post.author?.name;
+
     feedPost.innerHTML = `
       <div class="card shadow-sm w-100 mx-auto m-2 p-3 Feed-Card">
         <div class="card-body">
@@ -65,9 +69,41 @@ document.addEventListener("DOMContentLoaded", async () => {
       post.created
     ).toLocaleTimeString()}
           </p>
+          <div>
+            ${isAuthor ? `
+              <a href="editPost.html?id=${post.id}">
+              <button class="btn btn-primary mt-3 fixed" id="EditPostBtn">Edit</button>
+              </a>` : ""}
+            ${isAuthor ? `<button class="btn btn-danger mt-3 fixed" id="deletePostBtn">Delete</button>` : ""}
+          </div>
+          <p id="error-message" class="text-danger text-center"></p>
         </div>
       </div>
     `;
+
+    const errorMessage = document.getElementById("error-message");
+
+    if (isAuthor) {
+      document.getElementById("deletePostBtn").addEventListener("click", async () => {
+
+        deletePostBtn.disabled = true;
+        deletePostBtn.textContent = "Deleting...";
+        if (confirm("You sure you want to delete this post?")) {
+          try {
+            await deletePost(postId);
+            errorMessage.classList.remove("text-danger");
+            errorMessage.classList.add("text-success");
+            errorMessage.textContent = "Post deleted successfully";
+            setTimeout(() => {
+              window.location.href = "feed.html";
+            }, 3000);
+          } catch (error) {
+            console.log(error);
+            errorMessage.textContent = "❌ Failed to delete post. Please try again.";
+          }
+      }});
+    }
+
   } catch (error) {
     console.error(error);
     feedPost.innerHTML = `
