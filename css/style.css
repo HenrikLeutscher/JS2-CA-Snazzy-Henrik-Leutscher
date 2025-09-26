@@ -42,3 +42,15 @@ html, body {
   object-fit: cover;
   border-radius: 50%;
 }
+
+.Post-Image {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+}
+
+.Specific-Post-Image {
+  width: 750px;
+  height: auto;
+  object-fit: cover;
+}
