@@ -57,3 +57,13 @@ export async function createPost(postData) {
     const { data } = await response.json();
     return data;
 }
+
+export function postClick() {
+  const postElements = document.querySelectorAll(".post");
+  postElements.forEach((postEl) => {
+    postEl.addEventListener("click", () => {
+      const postId = postEl.getAttribute("data-id");
+      window.location.href = `feedposts.html?id=${postId}`;
+    });
+  });
+}
