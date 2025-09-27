@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       feedContainer.innerHTML = postList
         .map(
           (post) => `
-            <div class="post m-2 p-3 w-100 mx-auto cursor-pointer Feed-Card" data-id="${
+            <div class="post m-2 p-3 w-50 col mx-auto cursor-pointer Feed-Card" data-id="${
               post.id
             }">
                 <h6 class="card-subtitle mb-2 text-muted">
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     post.media?.url
                       ? `<img src="${post.media.url}" alt="${
                           post.media.alt || "Post image"
-                        }" class="img-thumbnail rounded mt-3 Post-Image" />`
+                        }" class="img-thumbnail rounded mt-3 Post-Image w-100" />`
                       : ""
                   }
                 </picture>
@@ -49,6 +49,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     displayPosts(posts.data);
 
     // Filter posts when inputting in search input
+    const resultCount = document.getElementById("resultCount");
+    
     if (searchInput) {
       searchInput.addEventListener("input", () => {
         const query = searchInput.value.toLowerCase();
@@ -58,10 +60,27 @@ document.addEventListener("DOMContentLoaded", async () => {
             p.body.toLowerCase().includes(query)
         );
         displayPosts(filtered);
+
+        if (resultCount) {
+          resultCount.textContent = `${filtered.length} post(s) matches your search`;
+        }
       });
     }
   } catch (error) {
     console.error(error);
     feedContainer.textContent = "Failed to load posts.";
   }
+
+  const backToTopBtn = document.getElementById("goBackToTop");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.remove("d-none");
+    } else {
+      backToTopBtn.classList.add("d-none");
+    }
+  });
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0});
+  });
 });
