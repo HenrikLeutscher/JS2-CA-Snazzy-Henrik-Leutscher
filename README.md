@@ -33,7 +33,7 @@
 
 ## My Coding Choices
 - I have used ES6 Modules to keep code modular and reusable
-- I have split functions into different js files to organize them and have the tracking for future development easier.
+   - I have split functions into different js files to organize them and have the tracking for future development easier.
 - I have used async / await for every API request, to ensure better readability and error handling
 - I have used chaining when accessing properties to avoid errors when running.
 - I have used try/catch blocks to handle API errors gracefully and display messages to users.
