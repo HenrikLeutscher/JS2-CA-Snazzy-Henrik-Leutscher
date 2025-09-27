@@ -6,11 +6,10 @@
 
 - [Description](#description)
 - [Built With](#built-with)
-- [Getting Started](getting-started)
-- [Installing](installing)
-- [Running](running)
-- [Config (After running the app](config)
-- [Contact](contact)
+- [Installing](#installing)
+- [Running](#running)
+- [Config (After running the app](#config)
+- [Contact](#contact)
 ## Description
 
 - Front-End Client for a Social Media Application with my own name: Snazzy
@@ -30,9 +29,9 @@
 
 - HTML, CSS, Bootstrap, JavaScript
 
-# Getting Started:
+## Getting Started:
 
-### Installing
+## Installing
 
 1. Clone the repo:
 
