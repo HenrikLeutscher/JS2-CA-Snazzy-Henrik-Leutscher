@@ -39,6 +39,7 @@
 - I have used try/catch blocks to handle API errors gracefully and display messages to users.
 
 ## Future Plans:
+- Overall styling with bootstrap
 - Post Plans:
   - Likes on each post (With count)
   - Comments on each post (with count)
