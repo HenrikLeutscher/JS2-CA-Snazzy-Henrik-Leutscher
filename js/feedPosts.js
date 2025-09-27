@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       post.author?.name
     }</a>
           </h6>
-          <h3 class="card-title">${post.title}</h3>
+          <h1 class="card-title">${post.title}</h1>
           ${
             post.media?.url
               ? `<img src="${post.media.url}" alt="${

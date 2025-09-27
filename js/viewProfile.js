@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
               : ""
           }
           <div>
-            <h2>${data.name}</h2>
+            <h1>${data.name}</h1>
             <p>${data.email}</p>
             ${
               username !== loggedInUser.name
