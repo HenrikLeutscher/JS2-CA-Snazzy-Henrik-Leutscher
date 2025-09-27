@@ -8,7 +8,7 @@
 - [Built With](#built-with)
 - [Installing](#installing)
 - [Running](#running)
-- [Config (After running the app](#config)
+- [Config (After running the app](#Config-(After-running-the-app))
 - [Contact](#contact)
 ## Description
 
