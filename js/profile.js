@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   } catch (err) {
-    console.error(err);
     profileContainer.innerHTML = `<p class="text-center text-danger">Error loading profile: ${err.message}</p>`;
   }
 });

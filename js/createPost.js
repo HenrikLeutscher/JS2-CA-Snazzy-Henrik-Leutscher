@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "feed.html";
       }, 3000);
     } catch (err) {
-      console.error(err);
+      errorMessage.textContent = err.message;
     }
   });
 });

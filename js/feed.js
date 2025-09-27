@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const posts = await getPosts();
-    console.log("Fetched posts:", posts);
     function displayPosts(postList) {
       feedContainer.innerHTML = postList
         .map(
@@ -67,8 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
   } catch (error) {
-    console.error(error);
-    feedContainer.textContent = "Failed to load posts.";
+    feedContainer.textContent = `Failed to load posts. ${error.message}`;
   }
 
   const backToTopBtn = document.getElementById("goBackToTop");

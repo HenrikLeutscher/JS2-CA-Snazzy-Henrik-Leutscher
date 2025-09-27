@@ -109,14 +109,12 @@ document.addEventListener("DOMContentLoaded", async () => {
               window.location.href = "feed.html";
             }, 3000);
           } catch (error) {
-            console.log(error);
             errorMessage.textContent =
               "Failed to delete post. Please try again.";
           }
         });
     }
   } catch (error) {
-    console.error(error);
     feedPost.innerHTML = `
       <div class="alert alert-danger">${error.message}</div>
     `;

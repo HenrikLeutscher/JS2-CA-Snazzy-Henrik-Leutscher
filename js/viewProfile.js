@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                   }</button>`
                 : ""
             }
+            <p id="error-Message"></p>
 
           </div>
         </div>
@@ -106,6 +107,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     postClick();
 
     const followBtn = document.getElementById("followBtn");
+    const errorMessage = document.getElementById("error-Message");
     if (followBtn) {
       followBtn.classList.toggle("btn-danger", isFollowing);
       followBtn.classList.toggle("btn-primary", !isFollowing);
@@ -133,7 +135,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           location.reload();
         } catch (err) {
-          console.log(err.message);
+          errorMessage.textContent = err.message;
         }
       });
     }
