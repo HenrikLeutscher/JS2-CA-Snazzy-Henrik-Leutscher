@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
+    const registerBtn = document.getElementById("registerBtn");
 
     const userData = {
       name: username,
@@ -33,9 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    if (!username || !email || !password || !confirmPassword) {
+      errorMessage.textContent = "Please make sure all fields are filled out.";
+      return;
+    }
+
     try {
       const data = await registerUser(userData);
       saveToken(data.accessToken);
+      registerBtn.disabled = true;
+      registerBtn.textContent = "Registering...";
       errorMessage.classList.remove("text-danger");
       errorMessage.classList.add("text-success");
       errorMessage.textContent = "Registration successful! Redirecting...";
