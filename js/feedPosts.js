@@ -51,7 +51,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       <div class="card shadow-sm w-100 mx-auto m-2 p-3 Feed-Card">
         <div class="card-body">
           <h6 class="card-subtitle mb-2 text-muted">
-            <a href="viewProfile.html?username=${post.author?.name}">@${post.author?.name}</a>
+            <a href="viewProfile.html?username=${post.author?.name}">@${
+      post.author?.name
+    }</a>
           </h6>
           <h3 class="card-title">${post.title}</h3>
           ${
@@ -70,11 +72,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     ).toLocaleTimeString()}
           </p>
           <div>
-            ${isAuthor ? `
+            ${
+              isAuthor
+                ? `
               <a href="editPost.html?id=${post.id}">
               <button class="btn btn-primary mt-3 fixed" id="EditPostBtn">Edit</button>
-              </a>` : ""}
-            ${isAuthor ? `<button class="btn btn-danger mt-3 fixed" id="deletePostBtn">Delete</button>` : ""}
+              </a>`
+                : ""
+            }
+            ${
+              isAuthor
+                ? `<button class="btn btn-danger mt-3 fixed" id="deletePostBtn">Delete</button>`
+                : ""
+            }
           </div>
           <p id="error-message" class="text-danger text-center"></p>
         </div>
@@ -84,11 +94,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const errorMessage = document.getElementById("error-message");
 
     if (isAuthor) {
-      document.getElementById("deletePostBtn").addEventListener("click", async () => {
-
-        deletePostBtn.disabled = true;
-        deletePostBtn.textContent = "Deleting...";
-        if (confirm("You sure you want to delete this post?")) {
+      document
+        .getElementById("deletePostBtn")
+        .addEventListener("click", async () => {
+          deletePostBtn.disabled = true;
+          deletePostBtn.textContent = "Deleting...";
           try {
             await deletePost(postId);
             errorMessage.classList.remove("text-danger");
@@ -99,11 +109,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             }, 3000);
           } catch (error) {
             console.log(error);
-            errorMessage.textContent = "❌ Failed to delete post. Please try again.";
+            errorMessage.textContent =
+              "Failed to delete post. Please try again.";
           }
-      }});
+        });
     }
-
   } catch (error) {
     console.error(error);
     feedPost.innerHTML = `

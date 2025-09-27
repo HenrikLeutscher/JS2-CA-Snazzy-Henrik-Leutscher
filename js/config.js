@@ -5,4 +5,3 @@ export const API_URL = "https://v2.api.noroff.dev/auth";
 export const POST_API_URL = "https://v2.api.noroff.dev/social/posts";
 
 export const PROFILES_API_URL = "https://v2.api.noroff.dev/social/profiles";
-

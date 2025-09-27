@@ -54,7 +54,13 @@ document.addEventListener("DOMContentLoaded", async () => {
           <div>
             <h2>${data.name}</h2>
             <p>${data.email}</p>
-            ${username !== loggedInUser.name ? `<button class="btn btn-primary" id="followBtn">${isFollowing ? "Unfollow" : "Follow"}</button>` : ""}
+            ${
+              username !== loggedInUser.name
+                ? `<button class="btn btn-primary" id="followBtn">${
+                    isFollowing ? "Unfollow" : "Follow"
+                  }</button>`
+                : ""
+            }
 
           </div>
         </div>
@@ -72,12 +78,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                     (post) => `
               <div class="card mb-2 p-2">
                 <h5>${post.title}</h5>
-                <p>${post.body}</p>
                 ${
                   post.media?.url
                     ? `<img src="${post.media.url}" alt="${post.media.alt}" class="img-thumbnail rounded mt-2 Specific-Post-Image" />`
                     : ""
                 }
+                <p>${post.body}</p>
                 <p class="card-subtitle text-muted small mt-3">
             Date Posted: ${new Date(
               post.created
@@ -103,18 +109,23 @@ document.addEventListener("DOMContentLoaded", async () => {
       followBtn.addEventListener("click", async () => {
         const action = isFollowing ? "unfollow" : "follow";
         try {
-          const response = await fetch(`${PROFILES_API_URL}/${username}/${action}`, {
-            method: "PUT",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "X-Noroff-API-Key": getApiKey(),
-              "Content-Type": "application/json",
-            },
-          });
+          const response = await fetch(
+            `${PROFILES_API_URL}/${username}/${action}`,
+            {
+              method: "PUT",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "X-Noroff-API-Key": getApiKey(),
+                "Content-Type": "application/json",
+              },
+            }
+          );
 
           if (!response.ok) throw new Error(`Failed to ${action} user`);
 
-          isFollowing ? followBtn.textContent = "Follow" : followBtn.textContent = "Unfollow";
+          isFollowing
+            ? (followBtn.textContent = "Follow")
+            : (followBtn.textContent = "Unfollow");
           isFollowing = !isFollowing;
 
           location.reload();

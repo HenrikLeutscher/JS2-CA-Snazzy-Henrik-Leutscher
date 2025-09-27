@@ -23,14 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Makes sure Email is as intended
     if (!email.endsWith("@stud.noroff.no")) {
-        errorMessage.textContent = "Provided email must end with @stud.noroff.no";
-        return;
+      errorMessage.textContent = "Provided email must end with @stud.noroff.no";
+      return;
     }
 
     // Double password check, ensuring password is written correctly
     if (password !== confirmPassword) {
-        errorMessage.textContent = "Passwords do not match, please try again.";
-        return;
+      errorMessage.textContent = "Passwords do not match, please try again.";
+      return;
     }
 
     try {

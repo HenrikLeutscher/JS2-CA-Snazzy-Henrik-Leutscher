@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       errorMessage.classList.remove("text-danger");
       errorMessage.classList.add("text-success");
       errorMessage.textContent = "Login successful! Redirecting...";
-      
+
       setTimeout(() => {
         window.location.href = "feed.html";
       }, 2000);

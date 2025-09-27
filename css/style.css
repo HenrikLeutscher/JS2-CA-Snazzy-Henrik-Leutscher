@@ -1,11 +1,13 @@
 html, body {
-      height: 100%;   /* make html and body full height */
-      margin: 0;      /* remove default body margin */
+  height: 100%;
+  /* make html and body full height */
+  margin: 0;
+  /* remove default body margin */
 }
 
 .header-primary,
 .footer-primary {
-    background-color: lightseagreen;
+  background-color: lightseagreen;
 }
 
 .logo {

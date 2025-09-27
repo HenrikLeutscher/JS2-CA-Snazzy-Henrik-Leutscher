@@ -15,22 +15,33 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     // Fetch profile data
-    const response = await fetch(`${PROFILES_API_URL}/${username}?_followers=true&_following=true&_posts=true`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "X-Noroff-API-Key": getApiKey(),
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `${PROFILES_API_URL}/${username}?_followers=true&_following=true&_posts=true`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "X-Noroff-API-Key": getApiKey(),
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     if (!response.ok) throw new Error("Failed to fetch profile");
     const { data } = await response.json();
 
     profileContainer.innerHTML = `
       <div class="card shadow-sm w-100 mx-auto m-2 p-3">
-        ${data.banner?.url ? `<img src="${data.banner.url}" alt="${data.banner.alt}" class="img-fluid mb-3 rounded Profile-Banner">` : ""}
+        ${
+          data.banner?.url
+            ? `<img src="${data.banner.url}" alt="${data.banner.alt}" class="img-fluid mb-3 rounded Profile-Banner">`
+            : ""
+        }
         <div class="d-flex align-items-center mb-3">
-          ${data.avatar?.url ? `<img src="${data.avatar.url}" alt="${data.avatar.alt}" class="rounded-circle me-3 Profile-Avatar">` : ""}
+          ${
+            data.avatar?.url
+              ? `<img src="${data.avatar.url}" alt="${data.avatar.alt}" class="rounded-circle me-3 Profile-Avatar">`
+              : ""
+          }
           <div>
             <h2>${data.name}</h2>
             <p>Email: ${data.email}</p>
@@ -45,31 +56,48 @@ document.addEventListener("DOMContentLoaded", async () => {
         <h3>Edit Your Profile:</h3>
         <form id="editProfileForm" class="d-flex flex-column gap-2">
           <label>Bio:</label>
-          <textarea id="editBio" class="form-control" rows="3">${data.bio || ""}</textarea>
+          <textarea id="editBio" class="form-control" rows="3">${
+            data.bio || ""
+          }</textarea>
 
           <label>Avatar URL:</label>
-          <input type="url" id="editAvatar" class="form-control" value="${data.avatar?.url || ""}">
+          <input type="url" id="editAvatar" class="form-control" value="${
+            data.avatar?.url || ""
+          }">
 
           <label>Banner URL:</label>
-          <input type="url" id="editBanner" class="form-control" value="${data.banner?.url || ""}">
+          <input type="url" id="editBanner" class="form-control" value="${
+            data.banner?.url || ""
+          }">
 
-          <button type="submit" class="btn btn-primary mt-2">Save Changes</button>
+          <button type="submit" id="saveChangesBtn" class="btn btn-primary mt-2">Save Changes</button>
           <p id="editMessage" class="text-center mt-2"></p>
         </form>
 
         <hr>
         <h3>Posts</h3>
         <div id="userPosts">
-          ${data.posts && data.posts.length
-            ? data.posts.map(post => `
+          ${
+            data.posts && data.posts.length
+              ? data.posts
+                  .map(
+                    (post) => `
               <div class="card mb-2 p-2">
                 <h5>${post.title}</h5>
+                ${
+                  post.media?.url
+                    ? `<img src="${post.media.url}" alt="${post.media.alt}" class="img-thumbnail rounded mt-2 Specific-Post-Image" />`
+                    : ""
+                }
                 <p>${post.body}</p>
-                ${post.media?.url ? `<img src="${post.media.url}" alt="${post.media.alt}" class="img-thumbnail rounded mt-2 Specific-Post-Image" />` : ""}
-                <p class="text-muted small">Created: ${new Date(post.created).toLocaleDateString()}</p>
+                <p class="text-muted small">Created: ${new Date(
+                  post.created
+                ).toLocaleDateString()}</p>
               </div>
-            `).join("")
-            : "<p>No posts yet.</p>"
+            `
+                  )
+                  .join("")
+              : "<p>No posts yet.</p>"
           }
         </div>
       </div>
@@ -101,6 +129,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           body: JSON.stringify(updatedProfile),
         });
 
+        const saveChangesBtn = document.getElementById("saveChangesBtn");
+        saveChangesBtn.disabled = true;
+        saveChangesBtn.textContent = "Saving...";
+
         if (!res.ok) throw new Error("Failed to update profile");
 
         const { data: newData } = await res.json();
@@ -112,14 +144,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         saveUser(newData);
 
         // Refresh to show updated data
-        setTimeout(() => location.reload(), 1000);
+        setTimeout(() => location.reload(), 2000);
       } catch (err) {
         editMessage.classList.remove("text-success");
         editMessage.classList.add("text-danger");
         editMessage.textContent = `Error updating profile: ${err.message}`;
       }
     });
-
   } catch (err) {
     console.error(err);
     profileContainer.innerHTML = `<p class="text-center text-danger">Error loading profile: ${err.message}</p>`;
