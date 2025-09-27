@@ -1,5 +1,6 @@
 import { getToken, getApiKey, getUser } from "./utils/storage.js";
 import { PROFILES_API_URL } from "./config.js";
+import { postClick } from "./api/posts.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const profileContainer = document.getElementById("profileContainer");
@@ -76,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
               ? data.posts
                   .map(
                     (post) => `
-              <div class="card mb-2 p-2">
+              <div class="card mb-2 p-2 cursor-pointer Feed-Card post" data-id="${post.id}">
                 <h5>${post.title}</h5>
                 ${
                   post.media?.url
@@ -101,6 +102,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       </div>
     `;
     document.title = `${data.name || "Profile"} - Snazzy`;
+
+    postClick();
 
     const followBtn = document.getElementById("followBtn");
     if (followBtn) {
