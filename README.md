@@ -2,6 +2,15 @@
  
 ![Project Teaser (Image will be added)]()
 
+## Content
+
+- [Description](#description)
+- [Built With](#built-with)
+- [Getting Started](getting-started)
+- [Installing](installing)
+- [Running](running)
+- [Config (After running the app](config)
+- [Contact](contact)
 ## Description
 
 - Front-End Client for a Social Media Application with my own name: Snazzy
@@ -58,10 +67,10 @@ http://localhost:3000
 
 ## Config (After running the app)
 
-1. Register a user
+1. Register a user.
 Go to "Register" page and fill out required information
 
-2. Get your API Key
+2. Get your API Key.
 Go to this link: https://docs.noroff.dev/docs/v2/auth/api-key
 
 Scroll down until you see "API Key Tool".
@@ -69,7 +78,7 @@ Login using the credentials you just registered a user with
 
 Copy the API Key provided under: "Your API Key:"
 
-3. Change API_KEY
+3. Change API_KEY.
 Go into the project folder
 
 Navigate to:
