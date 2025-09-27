@@ -2,6 +2,16 @@
  
 ![Project Teaser (Image will be added)]()
 
+## Content
+
+- [Description](#description)
+- [Built With](#built-with)
+- [My Coding Choices](#my-coding-choices)
+- [Future Plans](#future-plans)
+- [Installing](#installing)
+- [Running](#running)
+- [Config (After running the app)](#config)
+- [Contact](#contact)
 ## Description
 
 - Front-End Client for a Social Media Application with my own name: Snazzy
@@ -21,9 +31,23 @@
 
 - HTML, CSS, Bootstrap, JavaScript
 
-# Getting Started:
+## My Coding Choices
+- I have used ES6 Modules to keep code modular and reusable
+   - I have split functions into different js files to organize them and have the tracking for future development easier.
+- I have used async / await for every API request, to ensure better readability and error handling
+- I have used chaining when accessing properties to avoid errors when running.
+- I have used try/catch blocks to handle API errors gracefully and display messages to users.
 
-### Installing
+## Future Plans:
+- Overall styling with bootstrap
+- Post Plans:
+  - Likes on each post (With count)
+  - Comments on each post (with count)
+  - Reply to comments on each post
+
+## Getting Started:
+
+## Installing
 
 1. Clone the repo:
 
@@ -56,12 +80,12 @@ Open the app on your browser:
 http://localhost:3000
 ```
 
-## Config (After running the app)
+## Config
 
-1. Register a user
+1. Register a user.
 Go to "Register" page and fill out required information
 
-2. Get your API Key
+2. Get your API Key.
 Go to this link: https://docs.noroff.dev/docs/v2/auth/api-key
 
 Scroll down until you see "API Key Tool".
@@ -69,7 +93,7 @@ Login using the credentials you just registered a user with
 
 Copy the API Key provided under: "Your API Key:"
 
-3. Change API_KEY
+3. Change API_KEY.
 Go into the project folder
 
 Navigate to:
