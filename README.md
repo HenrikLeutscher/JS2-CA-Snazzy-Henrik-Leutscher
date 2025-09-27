@@ -8,7 +8,7 @@
 - [Built With](#built-with)
 - [Installing](#installing)
 - [Running](#running)
-- [Config (After running the app](#Config-(After-running-the-app))
+- [Config (After running the app](#config))
 - [Contact](#contact)
 ## Description
 
@@ -64,7 +64,7 @@ Open the app on your browser:
 http://localhost:3000
 ```
 
-## Config (After running the app)
+## Config
 
 1. Register a user.
 Go to "Register" page and fill out required information
