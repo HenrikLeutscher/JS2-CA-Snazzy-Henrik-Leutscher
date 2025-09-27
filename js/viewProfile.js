@@ -78,7 +78,9 @@ document.addEventListener("DOMContentLoaded", async () => {
               ? data.posts
                   .map(
                     (post) => `
-              <div class="card mb-2 p-2 cursor-pointer Feed-Card post" data-id="${post.id}">
+              <div class="card mb-2 p-2 cursor-pointer Feed-Card post" data-id="${
+                post.id
+              }">
                 <h5>${post.title}</h5>
                 ${
                   post.media?.url

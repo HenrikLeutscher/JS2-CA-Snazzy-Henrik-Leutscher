@@ -26,8 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       saveUser(loginResponse.data);
 
-      console.log("Saved token:", token);
-
       loginBtn.disabled = true;
       loginBtn.textContent = "Logging in...";
 
@@ -39,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "feed.html";
       }, 2000);
     } catch (err) {
-      console.log(err);
       errorMessage.textContent = err.message;
     }
   });

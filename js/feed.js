@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Filter posts when inputting in search input
     const resultCount = document.getElementById("resultCount");
-    
+
     if (searchInput) {
       searchInput.addEventListener("input", () => {
         const query = searchInput.value.toLowerCase();
@@ -79,6 +79,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0});
+    window.scrollTo({ top: 0 });
   });
 });
