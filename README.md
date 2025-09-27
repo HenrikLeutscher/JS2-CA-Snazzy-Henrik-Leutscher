@@ -31,10 +31,13 @@
 git clone git@github.com:HenrikLeutscher/JS2-CA-Snazzy-Henrik-Leutscher
 ```
 
+2. Navigate to the project folder:
+
 ```bash
+cd JS2-CA-Snazzy-Henrik-Leutscher
 ```
 
-2. Install the dependencies:
+3. Install the dependencies:
 
 ```
 npm install
@@ -47,6 +50,34 @@ To run the app, run the following commands:
 ```bash
 npm run start
 ```
+
+Open the app on your browser:
+```bash
+http://localhost:3000
+```
+
+## Config (After running the app)
+
+1. Register a user
+Go to "Register" page and fill out required information
+
+2. Get your API Key
+Go to this link: https://docs.noroff.dev/docs/v2/auth/api-key
+
+Scroll down until you see "API Key Tool".
+Login using the credentials you just registered a user with
+
+Copy the API Key provided under: "Your API Key:"
+
+3. Change API_KEY
+Go into the project folder
+
+Navigate to:
+JS (Folder) --> config.js
+
+Change the API_KEY "string" to your API Key
+
+4. Login and have fun exploring the project!
 
 ## Contact
 
