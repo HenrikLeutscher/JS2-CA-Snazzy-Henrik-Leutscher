@@ -56,3 +56,12 @@ html, body {
   height: auto;
   object-fit: cover;
 }
+
+/* Back to top styling button */
+
+.Back-To-Top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+}
