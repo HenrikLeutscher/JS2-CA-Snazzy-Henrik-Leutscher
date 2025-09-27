@@ -5,7 +5,8 @@ import { POST_API_URL } from "./config.js";
 /**
  * Fetch a single post by ID
  * @param {string} postId
- * @returns {Promise<Object>}
+ * @returns {Promise<{Object}>}
+ * @throws {Error} - Throws an error if fetching the post data fails
  */
 async function getSinglePost(postId) {
   const token = getToken();

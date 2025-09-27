@@ -5,6 +5,7 @@ import { POST_API_URL } from "./config.js";
  * Delete Post by ID
  * @param {string} postId
  * @returns {Promise<boolean>}
+ * @throws {Error} - Throws an error if deleting the post fails
  */
 
 export async function deletePost(postId) {

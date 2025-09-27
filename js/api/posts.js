@@ -25,6 +25,7 @@ export async function getPosts() {
  * Create post
  * @param {object} postData
  * @returns {Promise<Object>}
+ * @throws {Error} - Throws an error if creating the post fails
  */
 
 export async function createPost(postData) {

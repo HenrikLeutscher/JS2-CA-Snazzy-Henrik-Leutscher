@@ -3,6 +3,7 @@ import { API_URL } from "../config.js";
 /**
  * @param {object} userData - { username, email, password }
  * @returns {Promise<Object>} - Returns registered user data along access token
+ * @throws {Error} - Throws an error if registration fails
  */
 
 export async function registerUser(userData) {
@@ -26,6 +27,7 @@ export async function registerUser(userData) {
  * @param {string} email
  * @param {string} password
  * @returns {Promise<Object>} - Returns login data with an access token
+ * @throws {Error} - Throws an error if the login fails
  */
 
 export async function loginUser(email, password) {
