@@ -6,6 +6,8 @@
 
 - [Description](#description)
 - [Built With](#built-with)
+- [My Coding Choices](#my-coding-choices)
+- [Future Plans](#future-plans)
 - [Installing](#installing)
 - [Running](#running)
 - [Config (After running the app)](#config)
@@ -28,6 +30,19 @@
 ## Built With
 
 - HTML, CSS, Bootstrap, JavaScript
+
+## My Coding Choices
+- I have used ES6 Modules to keep code modular and reusable
+- I have split functions into different js files to organize them and have the tracking for future development easier.
+- I have used async / await for every API request, to ensure better readability and error handling
+- I have used chaining when accessing properties to avoid errors when running.
+- I have used try/catch blocks to handle API errors gracefully and display messages to users.
+
+## Future Plans:
+- Post Plans:
+  - Likes on each post (With count)
+  - Comments on each post (with count)
+  - Reply to comments on each post
 
 ## Getting Started:
 
