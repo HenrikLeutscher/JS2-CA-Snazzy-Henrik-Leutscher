@@ -46,6 +46,14 @@
   - Likes on each post (With count)
   - Comments on each post (with count)
   - Reply to comments on each post
+- Security and Sanitization on form inputs with {escapeHTML....} and urls
+- Reusability Improvements
+- Improving Error Handling
+- Helper functions for rendering
+- Fetch Wrappers instead of doing them multiple times
+- Submit Buttons to be re-enabled, as right now if the try fails it will stay disabled until refresh
+
+- Learn Sanitization Library to use on HTML Inputs
 
 ## Getting Started:
 
