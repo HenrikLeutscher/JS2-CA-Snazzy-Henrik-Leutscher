@@ -4,9 +4,15 @@ import { POST_API_URL } from "./config.js";
 
 /**
  * Fetch a single post by ID
- * @param {string} postId
- * @returns {Promise<{Object}>}
- * @throws {Error} - Throws an error if fetching the post data fails
+ * @param {number} postId
+ * @returns {Promise<{Object}>} - Returns the post data for the provided postId
+ * @example
+ * ```js
+ * const postId = 12345;
+ * const wasFetched = await getSinglePost(postId);
+ * // Expect wasFetched to return false if not found
+ * // Expect wasFetched to return post data if found
+ * ```
  */
 async function getSinglePost(postId) {
   const token = getToken();
@@ -21,8 +27,7 @@ async function getSinglePost(postId) {
   });
 
   if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`Failed to fetch post: ${response.status} ${errorText}`);
+    return false;
   }
 
   const { data } = await response.json();
@@ -109,8 +114,7 @@ document.addEventListener("DOMContentLoaded", async () => {
               window.location.href = "feed.html";
             }, 3000);
           } catch (error) {
-            errorMessage.textContent =
-              "Failed to delete post. Please try again.";
+            errorMessage.textContent = `Failed to delete post: ${error.message}`;
           }
         });
     }

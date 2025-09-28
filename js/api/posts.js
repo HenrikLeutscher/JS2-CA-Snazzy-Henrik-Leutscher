@@ -23,9 +23,16 @@ export async function getPosts() {
 
 /**
  * Create post
- * @param {object} postData
- * @returns {Promise<Object>}
+ * @param {object} postData - Data of the input fields for the new post
+ * @returns {Promise<Object>} - Creates a new post and returns the created post data
  * @throws {Error} - Throws an error if creating the post fails
+ * @example
+ * ```js
+ * const newPost = { title: "My New Post", body: "This is the content of my new post.", media: { url: "https://example.com/image.jpg" } };
+ * const wasCreated = await createPost(newPost);
+ * // Expect wasCreated to return the created post object
+ * // Expect wasCreated to be false if the post creation failed
+ * ```
  */
 
 export async function createPost(postData) {
@@ -33,6 +40,7 @@ export async function createPost(postData) {
   const apiKey = getApiKey();
 
   if (!token) {
+    const errorMessage = document.getElementById("error-message");
     errorMessage.textContent = "Please login to create a post";
     setTimeout(() => {
       window.location.href = "index.html";
@@ -51,8 +59,7 @@ export async function createPost(postData) {
   });
 
   if (!response.ok) {
-    errorMessage.textContent = "Failed to create post. Please try again.";
-    throw new Error(`Failed to create post: ${response.status}`);
+    return false;
   }
 
   const { data } = await response.json();

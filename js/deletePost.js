@@ -3,15 +3,21 @@ import { POST_API_URL } from "./config.js";
 
 /**
  * Delete Post by ID
- * @param {string} postId
- * @returns {Promise<boolean>}
- * @throws {Error} - Throws an error if deleting the post fails
+ * @param {number} postId - Deletes a post based of its given ID
+ * @returns {Promise<boolean>} - Returns true if deletion was successful, otherwise false
+ * @example
+ * // Delete a post by its ID, in this case: 12345 and handle its result
+ * ```js
+ * const postId = 12345;
+ * const wasDeleted = await deletePost(postId);
+ * // Expect wasDeleted to be true if deletion was successful
+ * // Expect wasDeleted to be false if deletion failed
+ * ```
  */
 
 export async function deletePost(postId) {
   const token = getToken();
   const apiKey = getApiKey();
-  const errorMessage = document.getElementById("error-message");
 
   const response = await fetch(`${POST_API_URL}/${postId}`, {
     method: "DELETE",
@@ -23,8 +29,6 @@ export async function deletePost(postId) {
   });
 
   if (!response.ok) {
-    const errorText = await response.text();
-    errorMessage.textContent = `Failed to delete post: ${response.status} ${errorText}`;
     return false;
   }
 

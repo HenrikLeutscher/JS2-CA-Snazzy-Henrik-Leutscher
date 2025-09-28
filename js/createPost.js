@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const newPost = await createPost(postData);
       errorMessage.classList.remove("text-danger");
       errorMessage.classList.add("text-success");
-      errorMessage.textContent = `✅ Post created successfully: "${newPost.title}"`;
+      errorMessage.textContent = `Post created successfully: "${newPost.title}"`;
 
       form.reset();
       setTimeout(() => {
