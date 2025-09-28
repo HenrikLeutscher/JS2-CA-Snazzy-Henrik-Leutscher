@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const loginBtn = document.getElementById("loginBtn");
+    loginBtn.disabled = true;
+    loginBtn.textContent = "Logging in...";
 
     if (!email || !password) {
       errorMessage.textContent = "Please make sure both fields are filled out.";
@@ -25,9 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
       saveToken(token);
 
       saveUser(loginResponse.data);
-
-      loginBtn.disabled = true;
-      loginBtn.textContent = "Logging in...";
 
       errorMessage.classList.remove("text-danger");
       errorMessage.classList.add("text-success");

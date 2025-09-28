@@ -65,6 +65,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      const EditPostSubmitBtn = document.getElementById("EditPostSubmitBtn");
+      EditPostSubmitBtn.disabled = true;
+      EditPostSubmitBtn.textContent = "Publishing changes...";
+
       const updatedPost = {
         title: titleInput.value,
         body: bodyInput.value,
@@ -87,10 +91,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!updateResponse.ok) {
           throw new Error("Failed to update post");
         }
-
-        const EditPostSubmitBtn = document.getElementById("EditPostSubmitBtn");
-        EditPostSubmitBtn.disabled = true;
-        EditPostSubmitBtn.textContent = "Publishing changes...";
 
         errorMessage.classList.remove("text-danger");
         errorMessage.classList.add("text-success");

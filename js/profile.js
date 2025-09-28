@@ -56,17 +56,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         <h3>Edit Your Profile:</h3>
         <form id="editProfileForm" class="d-flex flex-column gap-2">
-          <label>Bio:</label>
+          <label for="editBio">Bio:</label>
           <textarea id="editBio" class="form-control" rows="3">${
             data.bio || ""
           }</textarea>
 
-          <label>Avatar URL:</label>
+          <label for="editAvatar">Avatar URL:</label>
           <input type="url" id="editAvatar" class="form-control" value="${
             data.avatar?.url || ""
           }">
 
-          <label>Banner URL:</label>
+          <label for="editBanner">Banner URL:</label>
           <input type="url" id="editBanner" class="form-control" value="${
             data.banner?.url || ""
           }">
@@ -115,6 +115,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     editForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       editMessage.textContent = "";
+      const saveChangesBtn = document.getElementById("saveChangesBtn");
+      saveChangesBtn.disabled = true;
+      saveChangesBtn.textContent = "Saving...";
 
       // Only send editable fields
       const updatedProfile = {
@@ -133,10 +136,6 @@ document.addEventListener("DOMContentLoaded", async () => {
           },
           body: JSON.stringify(updatedProfile),
         });
-
-        const saveChangesBtn = document.getElementById("saveChangesBtn");
-        saveChangesBtn.disabled = true;
-        saveChangesBtn.textContent = "Saving...";
 
         if (!res.ok) throw new Error("Failed to update profile");
 

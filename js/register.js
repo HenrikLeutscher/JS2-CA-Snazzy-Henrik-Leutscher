@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
     const registerBtn = document.getElementById("registerBtn");
+    registerBtn.disabled = true;
+    registerBtn.textContent = "Registering...";
 
     const userData = {
       name: username,
@@ -42,8 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const data = await registerUser(userData);
       saveToken(data.accessToken);
-      registerBtn.disabled = true;
-      registerBtn.textContent = "Registering...";
       errorMessage.classList.remove("text-danger");
       errorMessage.classList.add("text-success");
       errorMessage.textContent = "Registration successful! Redirecting...";

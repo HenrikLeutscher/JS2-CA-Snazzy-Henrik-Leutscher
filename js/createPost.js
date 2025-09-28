@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const imgUrl = document.getElementById("imageUrl").value;
     const body = document.getElementById("body").value;
     const publishBtn = document.getElementById("publishBtn");
+    publishBtn.disabled = true;
+    publishBtn.textContent = "Publishing...";
 
     if (!title || !body) {
       errorMessage.textContent =
@@ -40,8 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const newPost = await createPost(postData);
-      publishBtn.disabled = true;
-      publishBtn.textContent = "Publishing...";
       errorMessage.classList.remove("text-danger");
       errorMessage.classList.add("text-success");
       errorMessage.textContent = `✅ Post created successfully: "${newPost.title}"`;
