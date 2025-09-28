@@ -30,6 +30,8 @@
 ## Built With
 
 - HTML, CSS, Bootstrap, JavaScript
+- Noroff API (V2)
+- Live Host (Netlify)
 
 ## My Coding Choices
 - I have used ES6 Modules to keep code modular and reusable
@@ -75,7 +77,7 @@ To run the app, run the following commands:
 npm run start
 ```
 
-Open the app on your browser:
+Open the app in your browser:
 ```bash
 http://localhost:3000
 ```
