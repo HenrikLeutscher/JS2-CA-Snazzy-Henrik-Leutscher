@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           window.location.href = `feedposts.html?id=${postId}`;
         }, 3000);
       } catch (error) {
-        console.error("Error updating post:", error);
+        errorMessage.textContent = `Error updating post: ${error.message}`;
       }
     });
   } catch (error) {
