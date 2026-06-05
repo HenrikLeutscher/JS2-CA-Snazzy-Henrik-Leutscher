@@ -1,6 +1,7 @@
 # JS2-CA-Snazzy-Henrik-Leutscher
  
-![Project Teaser (Image will be added)]()
+<img width="1920" height="1080" alt="Snazzy" src="https://github.com/user-attachments/assets/36423bf3-178e-467e-a803-5bc212a7e4ff" />
+
 
 ## Content
 
